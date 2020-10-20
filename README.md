@@ -25,7 +25,7 @@ v. Open your choice editor  (for vscode run ```code .``` on terminal)
 
 <i>NB: Add database username and password</i>
 
-Create mySQL database "repoPattern" or whate name you please
+Create mySQL database "repoPattern" or whatever name you please
 
 3. Run ```composer install``` command
 4. Run migration with seeder ```php artisan migrate:refresh --seed```
