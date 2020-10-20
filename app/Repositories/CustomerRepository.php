@@ -12,7 +12,8 @@ class CustomerRepository
             ->where('active', 1)
             ->with('user')
             ->get()
-            ->map(function ($customer) {
+            ->map->format();
+            // ->map(function ($customer) {
                 // return [
                 //     'customer_id'=> $customer->id,
                 //     'name' => $customer->name,
@@ -20,8 +21,8 @@ class CustomerRepository
                 //     'last_updated'=> $customer->updated_at->diffForHumans(),
                 // ];
                 // return $this->format($customer);
-                return $customer->format();
-            });
+                // return $customer->format();
+            // });
 
         return $customer;
     }
@@ -31,11 +32,13 @@ class CustomerRepository
         $customer = Customer::where('id', $customerId)
             ->where('active', 1)
             ->with('user')
-            ->firstOrFail();
+            ->firstOrFail()
+            ->format();
 
         // return $customer;
         // return $this->format($customer);
-        return $customer->format();
+        // return $customer->format();
+        return $customer;
     }
 
     // protected function format($customer)
