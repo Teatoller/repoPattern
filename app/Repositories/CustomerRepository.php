@@ -50,4 +50,11 @@ class CustomerRepository
     //         'last_updated'=> $customer->updated_at->diffForHumans(),
     //     ];
     // }
+
+    public function update($customerId)
+    {
+        $customer = Customer::where('id', $customerId)->firstOrFail();
+
+        $customer->update(request()->only('name'));
+    }
 }
