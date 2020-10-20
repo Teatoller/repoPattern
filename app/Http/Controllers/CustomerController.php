@@ -58,9 +58,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($customerId)
     {
-        //
+        $customer = $this->customerRepository->findById($customerId);
+        return $customer;
     }
 
     /**
