@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\CustomerRepository;
+use App\Repositories\CustomerRepositoryInterface;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
     private $customerRepository;
 
-    public function __construct(CustomerRepository $customerRepository)
+    public function __construct(CustomerRepositoryInterface $customerRepository)
     {
         $this->customerRepository = $customerRepository;
     }
