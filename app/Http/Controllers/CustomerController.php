@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+// use App\Repositories\CustomerRepository;
+use App\Repositories\CustomerRepositoryInterface;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+    private $customerRepository;
+
+    public function __construct(CustomerRepositoryInterface $customerRepository)
+    {
+        $this->customerRepository = $customerRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,19 +23,20 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        $customer = $this->customerRepository->all();
         // $customer = Customer::all();
-        $customer = Customer::orderBy('name')
-        ->where('active', 1)
-        ->with('user')
-        ->get()
-        ->map(function($customer){
-            return [
-                'customer_id'=> $customer->id,
-                'name' => $customer->name,
-                'created_by'=> $customer->user->email,
-                'last_updated'=> $customer->updated_at->diffForHumans(),
-            ];
-        });
+        // $customer = Customer::orderBy('name')
+        // ->where('active', 1)
+        // ->with('user')
+        // ->get()
+        // ->map(function($customer){
+        //     return [
+        //         'customer_id'=> $customer->id,
+        //         'name' => $customer->name,
+        //         'created_by'=> $customer->user->email,
+        //         'last_updated'=> $customer->updated_at->diffForHumans(),
+        //     ];
+        // });
 
         return $customer;
     }
@@ -49,9 +58,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($customerId)
     {
-        //
+        $customer = $this->customerRepository->findById($customerId);
+        return $customer;
     }
 
     /**
@@ -61,9 +71,11 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $customerId)
     {
-        //
+        $customer = $this->customerRepository->update($customerId);
+
+        // return redirect('/customer/'.$customerId);
     }
 
     /**
@@ -72,8 +84,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($customerId)
     {
-        //
+        $customer = $this->customerRepository->delete($customerId);
+
+        // return redirect('/');
     }
 }
