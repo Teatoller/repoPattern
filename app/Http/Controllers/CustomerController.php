@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\CustomerRepository;
+// use App\Repositories\CustomerRepository;
 use App\Repositories\CustomerRepositoryInterface;
 use Illuminate\Http\Request;
 

@@ -1,11 +1,46 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# RepoPattern
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- Implement a simple Customer Repository Pattern
+
+### Getting Started
+
+1. Setting Repo.
+
+- ```mkdir project```
+- ```cd project```
+- ```git clone https://github.com/Teatoller/repoPattern.git```
+- ```cd repoPattern```
+- ```git checkout develop```
+
+v. Open your choice editor  (for vscode run ```code .``` on terminal)
+
+2. Make sure you have the latest .env file as per the `example .env`
+
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=repoPattern
+- DB_USERNAME=
+- DB_PASSWORD=
+
+<i>NB: Add database username and password</i>
+
+Create mySQL database "repoPattern" or whate name you please
+
+3. Run ```composer install``` command
+4. Run migration with seeder ```php artisan migrate:refresh --seed```
+5. Run ``` php artisan serve```
+
+6. API endpoints, test on postman
+
+| #  | purpose                         | endpoint              |
+|----|---------------------------------|-----------------------|
+| 1. | GET:Customers                   | api/customers         |
+| 2. | GET:Customer by id              | api/customers/{id}    |
+| 3. | DELETE: customer by id          | api/customers/{id}    |
+| 4. | POST: Update customer name      | api/customers/{id}    |
+
+
 
 ## About Laravel
 
@@ -27,22 +62,6 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
 
 ## Contributing
 
