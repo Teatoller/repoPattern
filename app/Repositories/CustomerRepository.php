@@ -13,16 +13,16 @@ class CustomerRepository
             ->with('user')
             ->get()
             ->map->format();
-            // ->map(function ($customer) {
-                // return [
-                //     'customer_id'=> $customer->id,
-                //     'name' => $customer->name,
-                //     'created_by'=> $customer->user->email,
-                //     'last_updated'=> $customer->updated_at->diffForHumans(),
-                // ];
-                // return $this->format($customer);
-                // return $customer->format();
-            // });
+        // ->map(function ($customer) {
+        // return [
+        //     'customer_id'=> $customer->id,
+        //     'name' => $customer->name,
+        //     'created_by'=> $customer->user->email,
+        //     'last_updated'=> $customer->updated_at->diffForHumans(),
+        // ];
+        // return $this->format($customer);
+        // return $customer->format();
+        // });
 
         return $customer;
     }
@@ -56,5 +56,12 @@ class CustomerRepository
         $customer = Customer::where('id', $customerId)->firstOrFail();
 
         $customer->update(request()->only('name'));
+    }
+
+    public function delete($customerId)
+    {
+        $customer = Customer::where('id', $customerId)->delete();
+
+        // $customer->update(request()->only('name'));
     }
 }

@@ -83,8 +83,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($customerId)
     {
-        //
+        $customer = $this->customerRepository->delete($customerId);
+
+        // return redirect('/');
     }
 }
