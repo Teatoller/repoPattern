@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
 use App\Repositories\CustomerRepository;
 use Illuminate\Http\Request;
 
@@ -23,7 +22,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customer= $this->customerRepository->all();
+        $customer = $this->customerRepository->all();
         // $customer = Customer::all();
         // $customer = Customer::orderBy('name')
         // ->where('active', 1)
